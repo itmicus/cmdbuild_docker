@@ -11,20 +11,22 @@ This is the unofficial repository with all the versions of cmdbuild.
 I will update the repository every time there is a new version of cmdbuild available
 
 ### Deploy by docker run
-CMDbuild with demo database
+**CMDbuild with demo database**  
 ```bash
 docker run --name cmdbuild_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
 docker run --name cmdbuild_app --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:app-3.0
 ```
 
-CMDbuild Ready2use
+**CMDbuild Ready2use**  
 ```bash
 docker run --name cmdbuild_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
 docker run --name cmdbuild_app -e CMDBUILD_DUMP="ready2use.dump.xz" --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:app-3.0
 ```
-
+  
+  
+    
 ### Deploy by docker-compose
-**CMDbuild with demo database**
+**CMDbuild with demo database**  
 ```bash
 git clone https://github.com/itmicus/cmdbuild_docker
 docker-compose up -d
@@ -35,7 +37,7 @@ http://localhost:8090/cmdbuild
 **Login**: admin  
 **Password**: admin  
 
-**CMDbuild Ready2use**
+**CMDbuild Ready2use**  
 Open file .env and change to CMDBUILD_DUMP=ready2use.dump.xz and save file
 ```bash
 docker-compose up -d
@@ -46,8 +48,10 @@ http://localhost:8090/cmdbuild
 **Login**: admin  
 **Password**: admin  
 
-
-
+  
+    
+      
+      
 #### How drop database
 If you want change type of DB you must drop old database
 ```bash
