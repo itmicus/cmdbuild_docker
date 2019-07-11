@@ -34,3 +34,4 @@ services:
             - POSTGRES_HOST=${POSTGRES_HOST}
             - POSTGRES_DB=${POSTGRES_DB}
             - CMDBUILD_DUMP=${CMDBUILD_DUMP}
+            - JAVA_OPTS=-Xmx4000m -Xms4000m
