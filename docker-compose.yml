@@ -1,4 +1,4 @@
-version: "3"
+version: "2.4"
 volumes:
     cmdbuild-db:
     cmdbuild-tomcat:
@@ -35,7 +35,5 @@ services:
             - POSTGRES_DB=${POSTGRES_DB}
             - CMDBUILD_DUMP=${CMDBUILD_DUMP}
             - JAVA_OPTS=-Xmx4000m -Xms4000m
-        limits:
-            memory: 4000m
-        reservations:
-            memory: 2000m     
+        mem_limit: 4000m
+        mem_reservation: 2000m       
