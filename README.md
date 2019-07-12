@@ -1,6 +1,6 @@
 # CMDBuild 3 in Docker
 
-### CMDBuild
+## CMDBuild
 
 [CMDBuild](http://www.cmdbuild.org/en) is a web environment in which you can configure custom solutions for IT Governance, or more generally for asset management.
 ![cmdbuild_logo](http://www.cmdbuild.org/logo.png)
@@ -9,7 +9,9 @@
 12/07/2019 Add CMDBuild 3.1 with old version ready2use
 
 This is the unofficial repository with all the versions of cmdbuild.  
-I will update the repository every time there is a new version of cmdbuild available
+I will update the repository every time there is a new version of cmdbuild available  
+  
+Please open issues on [github](https://github.com/itmicus/cmdbuild_docker/issues)  
 
 ### Deploy by docker run
 **CMDbuild with demo database**  
@@ -32,19 +34,15 @@ docker run --name cmdbuild_app -e CMDBUILD_DUMP="ready2use.dump.xz" --link cmdbu
 git clone https://github.com/itmicus/cmdbuild_docker
 docker-compose up -d
 ```
-waiting while all container starting (about 5 minutes) and open your browser  
-
-http://localhost:8090/cmdbuild  
-Login: admin  
-Password: admin  
-
+  
 **CMDbuild Ready2use**  
 Open file docker-compose.yml and change to CMDBUILD_DUMP=ready2use.dump.xz and save file
 ```bash
 docker-compose up -d
 ```
-waiting while all container starting (about 5 minutes) and open your browser  
 
+### Connect to CMDBuild
+Waiting while all container starting and initilize database (about few minutes) and open your browser  
 http://localhost:8090/cmdbuild  
 Login: admin  
 Password: admin  
@@ -63,7 +61,7 @@ http://localhost:8090/
 Login: admin  
 Password: password  
 
-#### The default cmdbuild_app environment in the image is:
+#### The default cmdbuild_app environment in the image is:  
 
 POSTGRES_USER: postgres  
 POSTGRES_PASS: postgres  
@@ -77,4 +75,3 @@ CMDBUILD_DUMP: demo
 * empty
 * ready2use.dump.xz
 
-### Please open issues on [github](https://github.com/itmicus/cmdbuild_docker/issues)
