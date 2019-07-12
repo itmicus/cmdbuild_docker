@@ -17,13 +17,13 @@ Please open issues on [github](https://github.com/itmicus/cmdbuild_docker/issues
 **CMDbuild with demo database**  
 ```bash
 docker run --name cmdbuild_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
-docker run --name cmdbuild_app --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:app-3.0
+docker run --name cmdbuild_app --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:app-3.1
 ```
 
 **CMDbuild Ready2use**  
 ```bash
 docker run --name cmdbuild_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
-docker run --name cmdbuild_app -e CMDBUILD_DUMP="ready2use.dump.xz" --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:app-3.0
+docker run --name cmdbuild_app -e CMDBUILD_DUMP="ready2use.dump.xz" --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:app-3.1
 ```
   
   
@@ -48,13 +48,7 @@ Login: admin
 Password: admin  
   
     
-      
-#### How drop database
-If you want change type of DB you must drop old database
-```bash
-docker-compose exec cmdbuild_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh dbconfig drop -configfile /usr/local/tomcat/conf/cmdbuild/database.conf
-```
-and after run container with new value of CMDBUILD_DUMP
+### How it works
 
 #### Tomcat
 http://localhost:8090/  
@@ -74,4 +68,14 @@ CMDBUILD_DUMP: demo
 * demo
 * empty
 * ready2use.dump.xz
+
+#### How drop cmdbuild database
+If you want to change type DB you must drop old database
+```bash
+docker-compose exec cmdbuild_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh dbconfig drop -configfile /usr/local/tomcat/conf/cmdbuild/database.conf
+```
+and after run container with new value of CMDBUILD_DUMP
+
+
+
 
