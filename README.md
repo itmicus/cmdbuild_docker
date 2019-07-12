@@ -6,11 +6,13 @@
 ![cmdbuild_logo](http://www.cmdbuild.org/logo.png)
 
 ### Information
-12/07/2019 Add CMDBuild 3.1 with old version ready2use
+12/07/2019 Add CMDBuild 3.1 with old version ready2use (but we still waiting 2.0)
 
 This is the unofficial repository with all the versions of cmdbuild.  
-I will update the repository every time there is a new version of cmdbuild available  
-  
+I will update the repository every time there is a new version of cmdbuild available
+
+*Sometimes container cmdbuild_app after first run may be stopped, because it need more memory for this. Please, restart it*  
+
 Please open issues on [github](https://github.com/itmicus/cmdbuild_docker/issues)  
 
 ### Deploy by docker run
