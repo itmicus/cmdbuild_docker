@@ -9,8 +9,9 @@ ENV POSTGRES_USER postgres
 ENV POSTGRES_PASS postgres
 ENV POSTGRES_PORT 5432
 ENV POSTGRES_HOST cmdbuild_db
-ENV POSTGRES_DB cmdbuild_db30
+ENV POSTGRES_DB cmdbuild_db3
 ENV CMDBUILD_DUMP demo
+ENV JAVA_OPTS -Xmx4000m -Xms2000m
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \

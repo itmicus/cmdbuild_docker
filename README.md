@@ -3,10 +3,11 @@
 ### CMDBuild
 
 [CMDBuild](http://www.cmdbuild.org/en) is a web environment in which you can configure custom solutions for IT Governance, or more generally for asset management.
-
 ![cmdbuild_logo](http://www.cmdbuild.org/logo.png)
 
 ### Information
+12/07/2019 Add CMDBuild 3.1 with old version ready2use
+
 This is the unofficial repository with all the versions of cmdbuild.  
 I will update the repository every time there is a new version of cmdbuild available
 
@@ -34,23 +35,21 @@ docker-compose up -d
 waiting while all container starting (about 5 minutes) and open your browser  
 
 http://localhost:8090/cmdbuild  
-**Login**: admin  
-**Password**: admin  
+Login: admin  
+Password: admin  
 
 **CMDbuild Ready2use**  
-Open file .env and change to CMDBUILD_DUMP=ready2use.dump.xz and save file
+Open file docker-compose.yml and change to CMDBUILD_DUMP=ready2use.dump.xz and save file
 ```bash
 docker-compose up -d
 ```
 waiting while all container starting (about 5 minutes) and open your browser  
 
 http://localhost:8090/cmdbuild  
-**Login**: admin  
-**Password**: admin  
-
+Login: admin  
+Password: admin  
   
     
-      
       
 #### How drop database
 If you want change type of DB you must drop old database
@@ -61,21 +60,21 @@ and after run container with new value of CMDBUILD_DUMP
 
 #### Tomcat
 http://localhost:8090/  
-**Login**: admin  
-**Password**: password  
+Login: admin  
+Password: password  
 
 #### The default cmdbuild_app environment in the image is:
 
-CMDBUILD_URL: https://sourceforge.net/projects/cmdbuild/files/3.0/cmdbuild-3.0.war/download  
 POSTGRES_USER: postgres  
 POSTGRES_PASS: postgres  
 POSTGRES_PORT: 5432  
 POSTGRES_HOST: cmdbuild_db  
-POSTGRES_DB: cmdbuild_db30  
+POSTGRES_DB: cmdbuild_db3  
 CMDBUILD_DUMP: demo  
 
 #### CMDBUILD_DUMP values
 * demo
+* empty
 * ready2use.dump.xz
 
 ### Please open issues on [github](https://github.com/itmicus/cmdbuild_docker/issues)
