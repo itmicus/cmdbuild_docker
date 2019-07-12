@@ -4,14 +4,13 @@ MAINTAINER LLC Itmicus <order@itmicus.ru>
 
 WORKDIR $CATALINA_HOME
 
-ENV CMDBUILD_URL https://sourceforge.net/projects/cmdbuild/files/3.0/cmdbuild-3.0.war/download
+ENV CMDBUILD_URL https://sourceforge.net/projects/cmdbuild/files/3.1/cmdbuild-3.1.war/download
 ENV POSTGRES_USER postgres
 ENV POSTGRES_PASS postgres
 ENV POSTGRES_PORT 5432
 ENV POSTGRES_HOST cmdbuild_db
-ENV POSTGRES_DB cmdbuild_db3
+ENV POSTGRES_DB cmdbuild_db31
 ENV CMDBUILD_DUMP demo
-ENV JAVA_OPTS -Xmx4000m -Xms2000m
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \

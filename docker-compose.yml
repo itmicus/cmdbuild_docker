@@ -1,36 +1,39 @@
-version: "2.1"
+version: "2.4"
 volumes:
     cmdbuild-db:
     cmdbuild-tomcat:
 
 services:
     cmdbuild_db:
-        image: itmicus/cmdbuild:db-${VERSION}
-        container_name: ${POSTGRES_HOST}
+        image: itmicus/cmdbuild:db-3.0
+        container_name: cmdbuild_db
         volumes:
             - cmdbuild-db:/var/lib/postgresql
         ports:
-            - ${POSTGRES_PORT}:5432
+            - 5432:5432
         environment:
-            - POSTGRES_USER=${POSTGRES_USER}
-            - POSTGRES_PASS=${POSTGRES_PASS}
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASS=postgres
         restart: on-failure
 
     cmdbuild_app:
-        image: itmicus/cmdbuild:app-${VERSION}
-        container_name: ${CMDBUILD_HOST}
+        image: itmicus/cmdbuild:app-3.1
+        container_name: cmdbuild_app
         links:
            - cmdbuild_db
         depends_on:
            - cmdbuild_db
         ports:
-            - ${CMDBUILD_PORT}:8080
+            - 8090:8080
         volumes:
             - cmdbuild-tomcat:/usr/local/tomcat
         environment:
-            - POSTGRES_USER=${POSTGRES_USER}
-            - POSTGRES_PASS=${POSTGRES_PASS}
-            - POSTGRES_PORT=${POSTGRES_PORT}
-            - POSTGRES_HOST=${POSTGRES_HOST}
-            - POSTGRES_DB=${POSTGRES_DB}
-            - CMDBUILD_DUMP=${CMDBUILD_DUMP}
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASS=postgres
+            - POSTGRES_PORT=5432
+            - POSTGRES_HOST=cmdbuild_db
+            - POSTGRES_DB=cmdbuild_3
+            - CMDBUILD_DUMP=demo
+            - JAVA_OPTS=-Xmx4000m -Xms2000m
+        mem_limit: 4000m
+        mem_reservation: 2000m
