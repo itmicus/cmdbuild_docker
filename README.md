@@ -36,6 +36,9 @@ docker-compose up -d
 ```
   
 **CMDbuild Ready2use**  
+```bash
+git clone https://github.com/itmicus/cmdbuild_docker
+```  
 Open file docker-compose.yml and change to CMDBUILD_DUMP=ready2use.dump.xz and save file
 ```bash
 docker-compose up -d
