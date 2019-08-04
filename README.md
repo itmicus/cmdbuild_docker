@@ -6,7 +6,8 @@
 ![cmdbuild_logo](http://www.cmdbuild.org/logo.png)
 
 ### Information
-12/07/2019 Add CMDBuild 3.1 with old version ready2use (but we still waiting 2.0)
+04/08/2019 Add READY2USE 2.0
+12/07/2019 Add CMDBuild 3.1 with old version READY2USE (but we still waiting 2.0)
 
 This is the unofficial repository with all the versions of cmdbuild.  
 I will update the repository every time there is a new version of cmdbuild available
@@ -19,29 +20,31 @@ Please open issues on [github](https://github.com/itmicus/cmdbuild_docker/issues
 **CMDbuild with demo database**  
 ```bash
 docker run --name cmdbuild_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
-docker run --name cmdbuild_app --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:app-3.1
+docker run --name cmdbuild_app --restart unless-stopped --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:app-3.1
 ```
 
-**CMDbuild Ready2use**  
+**CMDbuild Ready2use 2.0**  
 ```bash
 docker run --name cmdbuild_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
-docker run --name cmdbuild_app -e CMDBUILD_DUMP="ready2use.dump.xz" --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:app-3.1
+docker run --name cmdbuild_app --restart unless-stopped -e CMDBUILD_DUMP="ready2use_demo.dump.xz" --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:r2u-2.0
 ```
-  
   
     
 ### Deploy by docker-compose
 **CMDbuild with demo database**  
 ```bash
 git clone https://github.com/itmicus/cmdbuild_docker
+```  
+cd to folder version 3.1 or ready2use 2.0 and run
+```bash  
 docker-compose up -d
 ```
   
 **CMDbuild Ready2use**  
-```bash
+```bash  
 git clone https://github.com/itmicus/cmdbuild_docker
 ```  
-Open file docker-compose.yml and change to CMDBUILD_DUMP=ready2use.dump.xz and save file
+Open file docker-compose.yml and change to CMDBUILD_DUMP=ready2use_demo.dump.xz and save file
 ```bash
 docker-compose up -d
 ```
@@ -73,6 +76,11 @@ CMDBUILD_DUMP: demo
 * demo
 * empty
 * ready2use.dump.xz
+
+#### CMDBUILD users
+* admin/admin       - full admin
+* demouser/demouser - multi-groups
+* guest/guest       - readonly
 
 #### How drop cmdbuild database
 If you want to change type DB you must drop old database
