@@ -1,14 +1,12 @@
 # CMDBuild 3 with READY2USE 2.0 and openMAINT 2.0 in Docker
 
 ## CMDBuild
-![cmdbuild_logo](https://www.tecnoteca.com/immagini/logo_cmdbuild.png/@@images/bf2e13f9-7a90-4e41-ba76-cf8fe5a87d50.png){:height="200px" width="67px"}
+![cmdbuild_logo](https://www.tecnoteca.com/immagini/logo_cmdbuild.png/@@images/bf2e13f9-7a90-4e41-ba76-cf8fe5a87d50.png)
 [CMDBuild](http://www.cmdbuild.org/en) is a web environment in which you can configure custom solutions for IT Governance, or more generally for asset management.  
 
-![reasy2use_logo](http://www.cmdbuild.org/++resource++tecnoteca.cmdbuildtheme2011.readytousepromo.img/logo_r2u.png){:height="200px" width="67px"}
-Pre-configured CMDBuild READY TO BE USED within the production environment  
+[READY2USE](http://www.cmdbuild.org/en/prodotti/ready2use) pre-configured CMDBuild READY TO BE USED within the production environment  
 
-![openmaint_logo](http://www.openmaint.org/images/logostandardsmall.png){:height="200px" width="67px"}
-Open source solution for the Property & Facility Management; an application for the management of buildings, installations, movable assets and related maintenance activities  
+[openMaint](http://www.openmaint.org) open source solution for the Property & Facility Management; an application for the management of buildings, installations, movable assets and related maintenance activities  
 
 ### Information
 **04/08/2019** Add READY2USE 2.0 and openMAINT 2.0  
