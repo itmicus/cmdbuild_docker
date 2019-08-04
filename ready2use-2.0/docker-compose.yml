@@ -19,7 +19,7 @@ services:
         mem_reservation: 300m
 
     cmdbuild_app:
-        image: itmicus/cmdbuild:app-3.1
+        image: itmicus/cmdbuild:r2u-2.0
         container_name: cmdbuild_app
         links:
            - cmdbuild_db
@@ -27,6 +27,7 @@ services:
            - cmdbuild_db
         ports:
             - 8090:8080
+        restart: on-failure
         volumes:
             - cmdbuild-tomcat:/usr/local/tomcat
         environment:
@@ -34,8 +35,8 @@ services:
             - POSTGRES_PASS=postgres
             - POSTGRES_PORT=5432
             - POSTGRES_HOST=cmdbuild_db
-            - POSTGRES_DB=cmdbuild_3
-            - CMDBUILD_DUMP=demo
+            - POSTGRES_DB=cmdbuild_r2u2
+            - CMDBUILD_DUMP=ready2use_demo.dump.xz
             - JAVA_OPTS=-Xmx4000m -Xms2000m
         mem_limit: 4000m
         mem_reservation: 2000m
