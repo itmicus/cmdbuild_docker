@@ -1,27 +1,27 @@
 # CMDBuild 3 with READY2USE 2.0 and openMAINT 2.0 in Docker
 
 ## CMDBuild
+![cmdbuild_logo](https://www.tecnoteca.com/immagini/logo_cmdbuild.png/@@images/bf2e13f9-7a90-4e41-ba76-cf8fe5a87d50.png)
 [CMDBuild](http://www.cmdbuild.org/en) is a web environment in which you can configure custom solutions for IT Governance, or more generally for asset management.
-![cmdbuild_logo](http://www.cmdbuild.org/logo.png)
 
 ## CMDBuild READY2USE 2.0
 ![reasy2use_logo](http://www.cmdbuild.org/++resource++tecnoteca.cmdbuildtheme2011.readytousepromo.img/logo_r2u.png)
 Pre-configured CMDBuild READY TO BE USED within the production environment
 
 ## CMDBuild openMAINT 2.0
-![openmaint_logo](http://www.openmaint.org/logo.png)
+![openmaint_logo](http://www.openmaint.org/images/logostandardsmall.png)
 Open source solution for the Property & Facility Management; an application for the management of buildings, installations, movable assets and related maintenance activities
 
 ### Information
-04/08/2019 Add READY2USE 2.0 and openMAINT 2.0
-12/07/2019 Add CMDBuild 3.1 with old version READY2USE (but we still waiting 2.0)
+**04/08/2019** Add READY2USE 2.0 and openMAINT 2.0  
+**12/07/2019** Add CMDBuild 3.1 with old version READY2USE (but we still waiting 2.0)
 
 This is the unofficial repository with all the versions of cmdbuild.  
 I will update the repository every time there is a new version of cmdbuild available
 
 *Sometimes container cmdbuild_app after first run may be stopped, because it need more memory for this. Please, restart it*  
 
-Please open issues on [github](https://github.com/itmicus/cmdbuild_docker/issues)  
+**Please open issues on [github](https://github.com/itmicus/cmdbuild_docker/issues)**  
 
 ### Deploy by docker run
 **CMDbuild with demo database**  
@@ -95,9 +95,14 @@ POSTGRES_DB: cmdbuild_db3
 CMDBUILD_DUMP: demo  
 
 #### CMDBUILD_DUMP values
-* demo
-* empty
+* demo.dump.xz
+* empty.dump.xz
+* openmaint_demo.dump.xz
+* openmaint_empty.dump.xz
+* openmaint_empty_gis.dump.xz
 * ready2use.dump.xz
+* ready2use_demo.dump.xz
+* ready2use_empty.dump.xz
 
 #### CMDBUILD users
 * admin/admin       - full admin
