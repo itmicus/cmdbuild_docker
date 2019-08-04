@@ -34,8 +34,8 @@ services:
             - POSTGRES_PASS=postgres
             - POSTGRES_PORT=5432
             - POSTGRES_HOST=cmdbuild_db
-            - POSTGRES_DB=cmdbuild_3
-            - CMDBUILD_DUMP=demo
+            - POSTGRES_DB=cmdbuild_r2u2
+            - CMDBUILD_DUMP=ready2use_demo.dump.xz
             - JAVA_OPTS=-Xmx4000m -Xms2000m
         mem_limit: 4000m
         mem_reservation: 2000m

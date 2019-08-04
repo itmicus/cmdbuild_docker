@@ -10,7 +10,7 @@ ENV POSTGRES_PASS postgres
 ENV POSTGRES_PORT 5432
 ENV POSTGRES_HOST cmdbuild_db
 ENV POSTGRES_DB cmdbuild_r2u2
-ENV CMDBUILD_DUMP ready2use.dump.xz
+ENV CMDBUILD_DUMP ready2use_demo.dump.xz
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
