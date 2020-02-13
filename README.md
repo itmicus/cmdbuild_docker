@@ -1,4 +1,4 @@
-# CMDBuild 3 with READY2USE 2.0 and openMAINT 2.0 in Docker
+# CMDBuild 3.2 with READY2USE 2.0 and openMAINT 2.0 in Docker
 
 ![cmdbuild_logo](https://www.tecnoteca.com/immagini/logo_cmdbuild.png/@@images/bf2e13f9-7a90-4e41-ba76-cf8fe5a87d50.png)  
 [CMDBuild](http://www.cmdbuild.org/en) is a web environment in which you can configure custom solutions for IT Governance, or more generally for asset management.  
@@ -8,6 +8,7 @@
 [openMaint](http://www.openmaint.org) open source solution for the Property & Facility Management; an application for the management of buildings, installations, movable assets and related maintenance activities  
 
 ## Latest news
+**13/02/2020** Add CMDBuild 3.2, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.2  
 **27/10/2019** Add CMDBuild 3.1.1, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.1.1  
 **04/08/2019** Add READY2USE 2.0 and openMAINT 2.0  
 **12/07/2019** Add CMDBuild 3.1 with old version READY2USE (but we still waiting 2.0)
@@ -25,21 +26,21 @@ I will update the repository every time there is a new version of cmdbuild avail
 
 ```bash
 docker run --name cmdbuild_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
-docker run --name cmdbuild_app --restart unless-stopped --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:app-3.1.1
+docker run --name cmdbuild_app --restart unless-stopped --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:app-3.2
 ```
 
 ### CMDbuild READY2USE 2.0
 
 ```bash
 docker run --name cmdbuild_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
-docker run --name cmdbuild_app --restart unless-stopped -e CMDBUILD_DUMP="ready2use_demo.dump.xz" --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:r2u-2.0-3.1.1
+docker run --name cmdbuild_app --restart unless-stopped -e CMDBUILD_DUMP="ready2use_demo.dump.xz" --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:r2u-2.0-3.2
 ```
   
 ### CMDbuild openMAINT 2.0
 
 ```bash
 docker run --name cmdbuild_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
-docker run --name cmdbuild_app --restart unless-stopped -e CMDBUILD_DUMP="openmaint_demo.dump.xz" --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:r2u-2.0-3.1.1
+docker run --name cmdbuild_app --restart unless-stopped -e CMDBUILD_DUMP="openmaint_demo.dump.xz" --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:r2u-2.0-3.2
 ```
 
 ## Deploy by docker-compose
@@ -49,7 +50,7 @@ docker run --name cmdbuild_app --restart unless-stopped -e CMDBUILD_DUMP="openma
 ```bash
 git clone https://github.com/itmicus/cmdbuild_docker
 ```  
-cd to folder version 3.1 or ready2use 2.0 and run
+cd to folder version 3.2 or ready2use 2.0 and run
 ```bash  
 docker-compose up -d
 ```
