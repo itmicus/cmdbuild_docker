@@ -1,4 +1,4 @@
-FROM tomcat:8.5.42-jdk8-openjdk
+FROM tomcat:9.0.31-jdk11-openjdk
 
 MAINTAINER LLC Itmicus <order@itmicus.ru>
 
