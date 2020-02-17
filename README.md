@@ -33,14 +33,14 @@ docker run --name cmdbuild_app --restart unless-stopped --link cmdbuild_db  -p 8
 
 ```bash
 docker run --name cmdbuild_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
-docker run --name cmdbuild_app --restart unless-stopped -e CMDBUILD_DUMP="ready2use_demo.dump.xz" --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:r2u-2.0-3.2
+docker run --name cmdbuild_app --restart unless-stopped -e CMDBUILD_DUMP="demo.dump.xz" --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:r2u-2.0-3.2
 ```
   
 ### CMDbuild openMAINT 2.0
 
 ```bash
-docker run --name cmdbuild_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
-docker run --name cmdbuild_app --restart unless-stopped -e CMDBUILD_DUMP="openmaint_demo.dump.xz" --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:r2u-2.0-3.2
+docker run --name openmaint_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
+docker run --name openmaint_app --restart unless-stopped -e CMDBUILD_DUMP="demo.dump.xz" --link openmaint_db  -p 8090:8080 -d itmicus/cmdbuild:om-2.0-3.2
 ```
 
 ## Deploy by docker-compose
@@ -50,7 +50,7 @@ docker run --name cmdbuild_app --restart unless-stopped -e CMDBUILD_DUMP="openma
 ```bash
 git clone https://github.com/itmicus/cmdbuild_docker
 ```  
-cd to folder version 3.2 or ready2use 2.0 and run
+cd to folder version 3.2 or ready2use 2.0 or openmaint 2.0 and run
 ```bash  
 docker-compose up -d
 ```
@@ -60,7 +60,7 @@ docker-compose up -d
 ```bash  
 git clone https://github.com/itmicus/cmdbuild_docker
 ```  
-Open file docker-compose.yml and change to CMDBUILD_DUMP=ready2use_demo.dump.xz and save file
+Open file docker-compose.yml and change to CMDBUILD_DUMP=demo.dump.xz and save file
 ```bash
 docker-compose up -d
 ```
@@ -70,7 +70,7 @@ docker-compose up -d
 ```bash  
 git clone https://github.com/itmicus/cmdbuild_docker
 ```  
-Open file docker-compose.yml and change to CMDBUILD_DUMP=openmaint_demo.dump.xz and save file
+Open file docker-compose.yml and change to CMDBUILD_DUMP=demo.dump.xz and save file
 ```bash
 docker-compose up -d
 ```
@@ -100,16 +100,10 @@ POSTGRES_HOST: cmdbuild_db
 POSTGRES_DB: cmdbuild_db3  
 CMDBUILD_DUMP: demo  
 
-### CMDBUILD_DUMP values
+### CMDBUILD_DUMP values for Ready2use and openMAINT
 
 * demo.dump.xz
 * empty.dump.xz
-* openmaint_demo.dump.xz
-* openmaint_empty.dump.xz
-* openmaint_empty_gis.dump.xz
-* ready2use.dump.xz
-* ready2use_demo.dump.xz
-* ready2use_empty.dump.xz
 
 ### CMDBUILD users
 
