@@ -8,5 +8,3 @@ docker run --name openmaint_app --restart unless-stopped -e CMDBUILD_DUMP="demo.
 #### CMDBUILD_DUMP values
 * demo.dump.xz
 * empty.dump.xz
-
-

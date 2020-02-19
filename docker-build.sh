@@ -13,4 +13,4 @@ docker build -t itmicus/cmdbuild:r2u-2.0-3.1.1 ready2use-2.0-3.1.1/. --label "ve
 docker build -t itmicus/cmdbuild:r2u-2.0 ready2use-2.0/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.ru>"
 
 #openMAINT
-docker build -t itmicus/cmdbuild:om-2.0-3.2 openamaint-2.0-3.2/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.ru>"
+docker build -t itmicus/cmdbuild:om-2.0-3.2 openmaint-2.0-3.2/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.ru>"

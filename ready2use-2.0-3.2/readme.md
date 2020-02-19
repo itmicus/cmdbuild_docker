@@ -14,10 +14,3 @@ docker run --name cmdbuild_app --restart unless-stopped -e CMDBUILD_DUMP="ready2
 #### CMDBUILD_DUMP values
 * demo.dump.xz
 * empty.dump.xz
-* openmaint_demo.dump.xz
-* openmaint_empty.dump.xz
-* openmaint_empty_gis.dump.xz
-* ready2use.dump.xz
-* ready2use_demo.dump.xz
-* ready2use_empty.dump.xz
-

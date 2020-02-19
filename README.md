@@ -8,7 +8,7 @@
 [openMaint](http://www.openmaint.org) open source solution for the Property & Facility Management; an application for the management of buildings, installations, movable assets and related maintenance activities  
 
 ## Latest news
-**13/02/2020** Add CMDBuild 3.2, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.2  
+**19/02/2020** Add CMDBuild 3.2, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.2  
 **27/10/2019** Add CMDBuild 3.1.1, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.1.1  
 **04/08/2019** Add READY2USE 2.0 and openMAINT 2.0  
 **12/07/2019** Add CMDBuild 3.1 with old version READY2USE (but we still waiting 2.0)
