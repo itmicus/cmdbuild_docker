@@ -2,6 +2,7 @@
 
 # build images and set tags
 # cmdbuild
+docker build -t itmicus/cmdbuild:app-3.3 3.3/cmdbuild/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.ru>"
 docker build -t itmicus/cmdbuild:app-3.2.1 3.2.1/cmdbuild/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.ru>"
 docker build -t itmicus/cmdbuild:app-3.2 3.2/cmdbuild/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.ru>"
 docker build -t itmicus/cmdbuild:app-3.1.1 3.1.1/cmdbuild/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.ru>"
