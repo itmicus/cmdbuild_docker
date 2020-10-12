@@ -5,7 +5,7 @@ volumes:
 
 services:
     cmdbuild_db:
-        image: itmicus/cmdbuild:db-3.3
+        image: itmicus/cmdbuild:db-3.0
         container_name: cmdbuild_db
         volumes:
             - cmdbuild-db:/var/lib/postgresql
