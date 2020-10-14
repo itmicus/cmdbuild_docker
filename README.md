@@ -1,4 +1,4 @@
-# CMDBuild 3.2 with READY2USE 2.0 and openMAINT 2.0 in Docker
+# CMDBuild 3.3 with READY2USE 2.0 and openMAINT 2.0 in Docker
 
 ![cmdbuild_logo](https://www.tecnoteca.com/immagini/logo_cmdbuild.png/@@images/bf2e13f9-7a90-4e41-ba76-cf8fe5a87d50.png)  
 [CMDBuild](http://www.cmdbuild.org/en) is a web environment in which you can configure custom solutions for IT Governance, or more generally for asset management.  
