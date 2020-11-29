@@ -81,6 +81,19 @@ Open file docker-compose.yml and change to CMDBUILD_DUMP=demo.dump.xz and save f
 docker-compose up -d
 ```
 
+### CMDbuild openMAINT 2.1-3.3b
+
+```bash  
+git clone https://github.com/itmicus/cmdbuild_docker
+```  
+ Build **local** openMAINT 2.1-3.3b docker image:
+```bash  
+docker build -t itmicus/cmdbuild:om-2.1-3.3-b openmaint-2.1-3.3-b/. --label "version=1.0" --label "maintaner=Andre Carvalho <afccarvalho.1991@gmail.com>"
+```  
+Open file docker-compose.yml and change to CMDBUILD_DUMP=demo.dump.xz and save file
+```bash
+docker-compose -f openmaint-2.1-3.3-b/docker-compose.yml up
+```
 ## Connect to CMDBuild
 
 Waiting while all container starting and initilize database (about few minutes) and open your browser  
