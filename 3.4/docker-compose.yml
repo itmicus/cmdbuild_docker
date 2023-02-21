@@ -19,7 +19,7 @@ services:
         mem_reservation: 300m
 
     cmdbuild_app:
-        image: itmicus/cmdbuild:app-3.4
+        image: afcarvalho1991/cmdbuild:app-3.4 
         container_name: cmdbuild_app
         links:
            - cmdbuild_db

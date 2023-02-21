@@ -1,8 +1,7 @@
 #FROM tomcat:9.0.53-jdk11-openjdk
 #FROM tomcat:9.0.65-jdk11-openjdk
-FROM tomcat:9.0.65-jdk17-temurin
+FROM tomcat:9.0.71-jdk17-temurin
 
-MAINTAINER LLC Itmicus <order@itmicus.ru>
 
 WORKDIR $CATALINA_HOME
 
@@ -31,9 +30,7 @@ COPY files/docker-entrypoint.sh /usr/local/bin/
 
 # Warning for /usr/local/tomcat/native-jni-lib/libtcnative-1.so.0.2.35: libssl.so.1.1: cannot open shared object file: No such file or directory
 # using solution from here https://stackoverflow.com/a/72633324
-RUN cd /tmp \
-    && wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.16_amd64.deb \
-    && dpkg -i libssl1.1_1.1.1f-1ubuntu2.16_amd64.deb
+# RUN apt-get install libssl1.1
 
 RUN set -x \
 	&& groupadd tomcat \
