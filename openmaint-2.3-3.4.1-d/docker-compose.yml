@@ -19,7 +19,7 @@ services:
         # mem_reservation: 300m
 
     openmaint_app:
-        image: afcarvalho1991/cmdbuild:om-2.1-3.3-b
+        image: afcarvalho1991/cmdbuild:om-2.3-3.4.1-d
         container_name: openmaint_app
         links:
            - openmaint_db

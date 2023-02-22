@@ -1,10 +1,8 @@
-FROM tomcat:9.0.31-jdk11-openjdk
-
-MAINTAINER LLC Itmicus <order@itmicus.ru>
+FROM tomcat:9.0.71-jdk17-temurin
 
 WORKDIR $CATALINA_HOME
 
-ENV CMDBUILD_URL https://sourceforge.net/projects/openmaint/files/2.1/openmaint-2.1-3.3-b.war/download
+ENV CMDBUILD_URL https://sourceforge.net/projects/openmaint/files/2.3/openmaint-2.3-3.4.1-d.war/download
 ENV POSTGRES_USER postgres
 ENV POSTGRES_PASS postgres
 ENV POSTGRES_PORT 5432
@@ -15,7 +13,8 @@ ENV CMDBUILD_DUMP demo.dump.xz
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
     maven \
-	postgresql-client
+	postgresql-client \ 
+	unzip
 
 RUN set -x \
  	&& mkdir $CATALINA_HOME/conf/cmdbuild/ \
