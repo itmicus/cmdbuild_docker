@@ -8,6 +8,8 @@
 [openMaint](http://www.openmaint.org) open source solution for the Property & Facility Management; an application for the management of buildings, installations, movable assets and related maintenance activities  
 
 ## Latest news
+
+**21/02/2023** Add CMDBuild 3.4, CMDBuild 3.4.1, and openMAINT 3.2 (on CMDBuild 3.4.1) -- @afcarvalho1991 and @quinont contribution.  
 **29/12/2020** Add openMAINT 2.1 on CMDBuild 3.3b  @afcarvalho1991 contribution  
 **12/10/2020** Add CMDBuild 3.3, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.2.1  @afcarvalho1991 contribution  
 **11/06/2020** Add CMDBuild 3.2.1, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.2.1  
@@ -15,9 +17,6 @@
 **27/10/2019** Add CMDBuild 3.1.1, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.1.1  
 **04/08/2019** Add READY2USE 2.0 and openMAINT 2.0  
 **12/07/2019** Add CMDBuild 3.1 with old version READY2USE (but we still waiting 2.0)
-**21/02/2023** Add CMDBuild 3.4
-**21/02/2023** Add openMAINT 3.2 on CMDBuild 3.4.1
-**21/02/2023** Add CMDBuild 3.4.1
 
 This is the unofficial repository with all the versions of cmdbuild.  
 I will update the repository every time there is a new version of cmdbuild available
