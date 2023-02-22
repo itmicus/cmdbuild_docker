@@ -17,6 +17,7 @@
 **12/07/2019** Add CMDBuild 3.1 with old version READY2USE (but we still waiting 2.0)
 **21/02/2023** Add CMDBuild 3.4
 **21/02/2023** Add openMAINT 3.2 on CMDBuild 3.4.1
+**21/02/2023** Add CMDBuild 3.4.1
 
 This is the unofficial repository with all the versions of cmdbuild.  
 I will update the repository every time there is a new version of cmdbuild available
@@ -30,8 +31,7 @@ I will update the repository every time there is a new version of cmdbuild avail
 ### CMDbuild with demo database
 
 ```bash
-docker run --name cmdbuild_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
-docker run --name cmdbuild_app --restart unless-stopped --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:app-3.3
+docker compose -d -f 3.4.1/docker-compose.yml up
 ```
 
 ### Build images (locally)
@@ -45,11 +45,10 @@ docker run --name cmdbuild_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
 docker run --name cmdbuild_app --restart unless-stopped -e CMDBUILD_DUMP="demo.dump.xz" --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:r2u-2.0-3.3
 ```
   
-### CMDbuild openMAINT 2.0
+### CMDbuild openMAINT 2.3
 
 ```bash
-docker run --name openmaint_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
-docker run --name openmaint_app --restart unless-stopped -e CMDBUILD_DUMP="demo.dump.xz" --link openmaint_db  -p 8090:8080 -d itmicus/cmdbuild:om-2.0-3.3
+docker compose -d -f openmaint-2.3-3.4.1-d/docker-compose.yml up
 ```
 
 ## Deploy by docker-compose
@@ -59,7 +58,7 @@ docker run --name openmaint_app --restart unless-stopped -e CMDBUILD_DUMP="demo.
 ```bash
 git clone https://github.com/itmicus/cmdbuild_docker
 ```  
-cd to folder version 3.2 or ready2use 2.0 or openmaint 2.0 and run
+cd to folder version 3.4.1 or ready2use 2.0 or openmaint 2.0 and run
 ```bash  
 docker-compose up -d
 ```
@@ -84,19 +83,16 @@ Open file docker-compose.yml and change to CMDBUILD_DUMP=demo.dump.xz and save f
 docker-compose up -d
 ```
 
-### CMDbuild openMAINT 2.1-3.3b
+### CMDbuild openMAINT 2.3-3.4.1-d
 
 ```bash  
 git clone https://github.com/itmicus/cmdbuild_docker
 ```  
- Build **local** openMAINT 2.1-3.3b docker image:
-```bash  
-docker build -t itmicus/cmdbuild:om-2.1-3.3-b openmaint-2.1-3.3-b/. --label "version=1.0" --label "maintaner=Andre Carvalho <afccarvalho.1991@gmail.com>"
-```  
 Open file docker-compose.yml and change to CMDBUILD_DUMP=demo.dump.xz and save file
 ```bash
-docker-compose -f openmaint-2.1-3.3-b/docker-compose.yml up
+docker-compose -f openmaint-2.3-3.4.1-d/docker-compose.yml up
 ```
+
 ## Connect to CMDBuild
 
 Waiting while all container starting and initilize database (about few minutes) and open your browser  
