@@ -34,7 +34,7 @@ RUN set -x \
 	&& groupadd tomcat \
 	&& useradd -s /bin/false -g tomcat -d $CATALINA_HOME tomcat \
 	&& cd /tmp \
-	&& wget -O cmdbuild.war "$CMDBUILD_URL" \
+	&& wget -O cmdbuild.war --no-check-certificate "$CMDBUILD_URL" \
 	&& chmod 777 cmdbuild.war \
 	&& chmod 777 /usr/local/bin/docker-entrypoint.sh \
 	&& unzip cmdbuild.war -d cmdbuild \
