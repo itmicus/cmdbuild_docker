@@ -5,7 +5,7 @@ volumes:
 
 services:
     cmdbuild_db:
-        image: itmicus/cmdbuild:db-3.0
+        image: postgis/postgis:12-3.3-alpine
         container_name: cmdbuild_db
         volumes:
             - cmdbuild-db:/var/lib/postgresql
@@ -15,8 +15,8 @@ services:
             - POSTGRES_USER=postgres
             - POSTGRES_PASS=postgres
         restart: always
-        mem_limit: 1000m
-        mem_reservation: 300m
+       # mem_limit: 1000m
+       # mem_reservation: 300m
 
     cmdbuild_app:
         image: itmicus/cmdbuild:r2u-2.0-3.3
