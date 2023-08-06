@@ -1,4 +1,4 @@
-# CMDBuild 3.4.1 with READY2USE 2.0 and openMAINT 2.3 in Docker
+# CMDBuild 3.4.2 with READY2USE 2.3 and openMAINT 2.3 in Docker
 
 ![cmdbuild_logo](https://www.tecnoteca.com/immagini/logo_cmdbuild.png/@@images/bf2e13f9-7a90-4e41-ba76-cf8fe5a87d50.png)  
 [CMDBuild](http://www.cmdbuild.org/en) is a web environment in which you can configure custom solutions for IT Governance, or more generally for asset management.  
@@ -8,7 +8,7 @@
 [openMaint](http://www.openmaint.org) open source solution for the Property & Facility Management; an application for the management of buildings, installations, movable assets and related maintenance activities  
 
 ## Latest news
-
+**06/08/2023** Add CMDBuild 3.4.2, READY2USE 2.3 (on CMDBuild 3.4.1) -- @itmicus.  
 **21/02/2023** Add CMDBuild 3.4, CMDBuild 3.4.1, and openMAINT 3.2 (on CMDBuild 3.4.1) -- @afcarvalho1991 and @quinont contribution.  
 **29/12/2020** Add openMAINT 2.1 on CMDBuild 3.3b  @afcarvalho1991 contribution  
 **12/10/2020** Add CMDBuild 3.3, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.2.1  @afcarvalho1991 contribution  
@@ -27,24 +27,24 @@ I will update the repository every time there is a new version of cmdbuild avail
 
 ## Deploy by docker run
 
-### CMDbuild with demo database
-
-```bash
-docker compose -d -f 3.4.1/docker-compose.yml up
-```
-
 ### Build images (locally)
 
     sh docker-build.sh # or select the specific version needed and the DB image
 
-### CMDbuild READY2USE 2.0
+### CMDbuild with demo database
+
+```bash
+docker compose -d -f 3.4.2/docker-compose.yml up
+```
+
+### CMDBuild READY2USE 2.3
 
 ```bash
 docker run --name cmdbuild_db -p 5432:5432 -d itmicus/cmdbuild:db-3.0
-docker run --name cmdbuild_app --restart unless-stopped -e CMDBUILD_DUMP="demo.dump.xz" --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:r2u-2.0-3.3
+docker run --name cmdbuild_app --restart unless-stopped -e CMDBUILD_DUMP="demo.dump.xz" --link cmdbuild_db  -p 8090:8080 -d itmicus/cmdbuild:r2u-2.3-3.4.1-d
 ```
-  
-### CMDbuild openMAINT 2.3
+
+### CMDBuild openMAINT 2.3
 
 ```bash
 docker compose -d -f openmaint-2.3-3.4.1-d/docker-compose.yml up
@@ -52,7 +52,7 @@ docker compose -d -f openmaint-2.3-3.4.1-d/docker-compose.yml up
 
 ## Deploy by docker-compose
 
-### CMDbuild with demo database
+### CMDBuild with demo database
 
 ```bash
 git clone https://github.com/itmicus/cmdbuild_docker
@@ -62,24 +62,14 @@ cd to folder version 3.4.1 or ready2use 2.0 or openmaint 2.0 and run
 docker-compose up -d
 ```
   
-### CMDbuild Ready2use
+### CMDBuild Ready2use 2.3-3.4.1-d
 
 ```bash  
 git clone https://github.com/itmicus/cmdbuild_docker
 ```  
 Open file docker-compose.yml and change to CMDBUILD_DUMP=demo.dump.xz and save file
 ```bash
-docker-compose up -d
-```
-
-### CMDbuild openMAINT 2.0
-
-```bash  
-git clone https://github.com/itmicus/cmdbuild_docker
-```  
-Open file docker-compose.yml and change to CMDBUILD_DUMP=demo.dump.xz and save file
-```bash
-docker-compose up -d
+docker compose -d -f ready2use-2.3-3.4.1-d/docker-compose.yml up
 ```
 
 ### CMDbuild openMAINT 2.3-3.4.1-d
