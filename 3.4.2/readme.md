@@ -6,7 +6,7 @@ docker run --name cmdbuild_app --link cmdbuild_db -p 8090:8080 -d itmicus/cmdbui
 ``` 
 or simply run
 ```bash
-docker compose -d -f 3.4.2/docker-compose.yml up
+docker-compose -f 3.4.2/docker-compose.yml up -d
 ```  
 
 #### CMDBUILD_DUMP values

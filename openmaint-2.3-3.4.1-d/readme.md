@@ -6,7 +6,7 @@ docker run --name openmaint_app --restart unless-stopped -e CMDBUILD_DUMP="demo.
 ```  
 or simply run
 ```bash
-docker compose -d -f openmaint-2.3-3.4.1-d/docker-compose.yml up
+docker-compose -f openmaint-2.3-3.4.1-d/docker-compose.yml up -d
 ```  
 
 #### CMDBUILD_DUMP values

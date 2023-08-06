@@ -34,7 +34,7 @@ I will update the repository every time there is a new version of cmdbuild avail
 ### CMDbuild with demo database
 
 ```bash
-docker compose -d -f 3.4.2/docker-compose.yml up
+docker-compose -f 3.4.2/docker-compose.yml up -d
 ```
 
 ### CMDBuild READY2USE 2.3
@@ -47,7 +47,7 @@ docker run --name cmdbuild_app --restart unless-stopped -e CMDBUILD_DUMP="demo.d
 ### CMDBuild openMAINT 2.3
 
 ```bash
-docker compose -d -f openmaint-2.3-3.4.1-d/docker-compose.yml up
+docker-compose -f openmaint-2.3-3.4.1-d/docker-compose.yml up -d
 ```
 
 ## Deploy by docker-compose
@@ -69,7 +69,7 @@ git clone https://github.com/itmicus/cmdbuild_docker
 ```  
 Open file docker-compose.yml and change to CMDBUILD_DUMP=demo.dump.xz and save file
 ```bash
-docker compose -d -f ready2use-2.3-3.4.1-d/docker-compose.yml up
+docker-compose -f ready2use-2.3-3.4.1-d/docker-compose.yml up -d
 ```
 
 ### CMDbuild openMAINT 2.3-3.4.1-d
@@ -79,7 +79,7 @@ git clone https://github.com/itmicus/cmdbuild_docker
 ```  
 Open file docker-compose.yml and change to CMDBUILD_DUMP=demo.dump.xz and save file
 ```bash
-docker-compose -f openmaint-2.3-3.4.1-d/docker-compose.yml up
+docker-compose -f openmaint-2.3-3.4.1-d/docker-compose.yml up -d
 ```
 
 ## Connect to CMDBuild
