@@ -13,7 +13,8 @@ ENV CMDBUILD_DUMP ready2use_demo.dump.xz
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
     maven \
-	postgresql-client
+	postgresql-client \
+	unzip
 
 RUN set -x \
  	&& mkdir $CATALINA_HOME/conf/cmdbuild/ \
