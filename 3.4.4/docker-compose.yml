@@ -9,7 +9,7 @@ services:
         image: postgis/postgis:17-3.5-alpine
         container_name: cmdbuild_db
         volumes:
-            - cmdbuild-db:/var/lib/postgresql
+            - cmdbuild-db:/var/lib/postgresql/data
         environment:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
@@ -29,7 +29,7 @@ services:
             - cmdbuild-tomcat:/usr/local/tomcat
         environment:
             - POSTGRES_USER=postgres
-            - POSTGRES_PASS=postgres
+            - POSTGRES_PASSWORD=postgres
             - POSTGRES_PORT=5432
             - POSTGRES_HOST=cmdbuild_db
             - POSTGRES_DB=cmdbuild_3

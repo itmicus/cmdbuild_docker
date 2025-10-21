@@ -8,7 +8,7 @@ echo "Edit $CATALINA_HOME/conf/cmdbuild/database.conf"
     echo "db.username=openmaint"
     echo "db.password=openmaint"
     echo "db.admin.username=$POSTGRES_USER"
-    echo "db.admin.password=$POSTGRES_PASS"
+    echo "db.admin.password=$POSTGRES_PASSWORD"
 } >> $CATALINA_HOME/conf/cmdbuild/database.conf
 
 # first init DB, second start with fail

@@ -8,12 +8,12 @@ services:
         image: itmicus/cmdbuild:db-3.0
         container_name: cmdbuild_db
         volumes:
-            - cmdbuild-db:/var/lib/postgresql
+            - cmdbuild-db:/var/lib/postgresql/data
         # ports:
         #     - 5432:5432
         environment:
             - POSTGRES_USER=postgres
-            - POSTGRES_PASS=postgres
+            - POSTGRES_PASSWORD=postgres
         restart: on-failure
         mem_limit: 1000m
         mem_reservation: 300m
@@ -32,7 +32,7 @@ services:
             - cmdbuild-tomcat:/usr/local/tomcat
         environment:
             - POSTGRES_USER=postgres
-            - POSTGRES_PASS=postgres
+            - POSTGRES_PASSWORD=postgres
             - POSTGRES_PORT=5432
             - POSTGRES_HOST=cmdbuild_db
             - POSTGRES_DB=cmdbuild_3

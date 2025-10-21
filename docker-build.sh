@@ -2,6 +2,8 @@
 
 # build images and set tags
 # cmdbuild
+docker build -t itmicus/cmdbuild:4.1.0 cmdbuild-4.1.0/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
+docker build -t itmicus/cmdbuild:4.0.0 cmdbuild-4.0.0/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
 docker build -t itmicus/cmdbuild:app-3.4.4 3.4.4/cmdbuild/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
 docker build -t itmicus/cmdbuild:app-3.4.2 3.4.2/cmdbuild/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
 docker build -t afcarvalho1991/cmdbuild:app-3.4.1 3.4.1/cmdbuild/. --label "version=1.0" --label "maintaner=Andre Carvalho <afccarvalho.1991@gmail.com>"
@@ -14,6 +16,8 @@ docker build -t itmicus/cmdbuild:app-3.1 3.1/cmdbuild/. --label "version=1.0" --
 docker build -t itmicus/cmdbuild:db-3.0 3.0/postgres/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
 
 # ready2use
+docker build -t itmicus/cmdbuild:r2u-2.4-4.1.0 ready2use-2.4-4.1.0/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
+docker build -t itmicus/cmdbuild:r2u-2.4-4.0.4 ready2use-2.4-4.0.4/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
 docker build -t itmicus/cmdbuild:r2u-2.3-3.4.1-d ready2use-2.3-3.4.1-d/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
 docker build -t itmicus/cmdbuild:r2u-2.0-3.3 ready2use-2.0-3.3/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
 docker build -t itmicus/cmdbuild:r2u-2.0-3.2.1 ready2use-2.0-3.2.1/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
@@ -22,6 +26,8 @@ docker build -t itmicus/cmdbuild:r2u-2.0-3.1.1 ready2use-2.0-3.1.1/. --label "ve
 docker build -t itmicus/cmdbuild:r2u-2.0 ready2use-2.0/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
 
 #openMAINT
+docker build -t itmicus/cmdbuild:om-2.4-4.1.0 openmaint-2.4-4.1.0/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
+docker build -t itmicus/cmdbuild:om-2.4-4.0.4 openmaint-2.4-4.0.4/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
 docker build -t itmicus/cmdbuild:om-2.0-3.3 openmaint-2.0-3.3/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
 docker build -t itmicus/cmdbuild:om-2.0-3.2.1 openmaint-2.0-3.2.1/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
 docker build -t itmicus/cmdbuild:om-2.0-3.2 openmaint-2.0-3.2/. --label "version=1.0" --label "maintaner=Itmicus <order@itmicus.com>"
