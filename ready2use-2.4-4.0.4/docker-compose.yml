@@ -1,4 +1,3 @@
-name: "ready2use-2_4-4_0_4"
 services:
     cmdbuild_db:
         image: postgis/postgis:17-3.5-alpine
@@ -14,24 +13,23 @@ services:
         mem_limit: 4000m
         mem_reservation: 2000m
         healthcheck:
-            test: ["CMD-SHELL", "pg_isready -U postgres"]
+            test: [ "CMD-SHELL", "pg_isready -U postgres" ]
             interval: 30s
             timeout: 10s
             retries: 3
             start_period: 80s
 
-
     cmdbuild_app:
         image: itmicus/cmdbuild:r2u-2.4-4.0.4
         container_name: cmdbuild_app
         links:
-           - cmdbuild_db
+            - cmdbuild_db
         depends_on:
-           cmdbuild_db:
-             condition: service_healthy
+            cmdbuild_db:
+                condition: service_healthy
         ports:
             - 8090:8080
-        restart: always  
+        restart: always
         volumes:
             - cmdbuild-tomcat:/usr/local/tomcat
         environment:
@@ -45,7 +43,7 @@ services:
         mem_limit: 6000m
         mem_reservation: 3500m
         healthcheck:
-            test: ["CMD", "curl", "-f", "-L", "http://localhost:8080/cmdbuild/ui"]
+            test: [ "CMD", "curl", "-f", "-L", "http://localhost:8080/cmdbuild/ui" ]
             interval: 30s
             timeout: 10s
             retries: 5

@@ -1,4 +1,3 @@
-name: "cmdbuild_4_0_0"
 services:
     cmdbuild_db:
         image: postgis/postgis:17-3.5-alpine
