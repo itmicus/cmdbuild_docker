@@ -1,132 +1,132 @@
 services:
-    cmdbuild_db:
-        image: postgis/postgis:17-3.5-alpine
-        container_name: cmdbuild_db
-        networks:
-            - cmdbuild-net
-        volumes:
-            - db:/var/lib/postgresql/data
-        ports:
-            - 5432:5432
-        environment:
-            - POSTGRES_USER=${POSTGRES_USER}
-            - POSTGRES_PASSWORD=${POSTGRES_USER}
-            - POSTGRES_INITDB_ARGS=--encoding=UTF-8
-        restart: unless-stopped
-        deploy:
-            resources:
-                limits:
-                    cpus: '2'
-                    memory: 4000M
-                reservations:
-                    memory: 2000M
-        healthcheck:
-            test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER}" ]
-            interval: 30s
-            timeout: 10s
-            retries: 3
-            start_period: 80s
-        logging:
-            driver: "json-file"
-            options:
-                max-size: "10m"
-                max-file: "3"
+  cmdbuild_db:
+    image: postgis/postgis:17-3.5-alpine
+    container_name: cmdbuild_db
+    networks:
+      - cmdbuild-net
+    volumes:
+      - db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_USER}
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4000M
+        reservations:
+          memory: 2000M
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER}" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 80s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
-    cmdbuild_app:
-        image: itmicus/cmdbuild:4.2.0
-        container_name: cmdbuild_app
-        networks:
-            - cmdbuild-net
-        depends_on:
-            cmdbuild_db:
-                condition: service_healthy
-        ports:
-            - 8090:8080
-        restart: unless-stopped
-        volumes:
-            - tomcat:/usr/local/tomcat
-        environment:
-            - POSTGRES_USER=${POSTGRES_USER}
-            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-            - POSTGRES_PORT=${POSTGRES_PORT}
-            - POSTGRES_HOST=${POSTGRES_HOST}
-            - POSTGRES_DB=${POSTGRES_DB}
-            - CMDBUILD_DUMP=demo.dump.xz
-            - JAVA_OPTS=-Xmx6000m -Xms3000m
-        deploy:
-            resources:
-                limits:
-                    cpus: '2'
-                    memory: 8000M
-                reservations:
-                    memory: 4000M
-        healthcheck:
-            test: [ "CMD", "curl", "-f", "-L", "http://localhost:8080/cmdbuild/ui" ]
-            interval: 30s
-            timeout: 10s
-            retries: 5
-            start_period: 120s
-        logging:
-            driver: "json-file"
-            options:
-                max-size: "10m"
-                max-file: "3"
+  cmdbuild_app:
+    image: itmicus/cmdbuild:4.2.0
+    container_name: cmdbuild_app
+    networks:
+      - cmdbuild-net
+    depends_on:
+      cmdbuild_db:
+        condition: service_healthy
+    ports:
+      - 8090:8080
+    restart: unless-stopped
+    volumes:
+      - tomcat:/usr/local/tomcat
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - CMDBUILD_DUMP=demo.dump.xz
+      - JAVA_OPTS=-Xmx6000m -Xms3000m
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 8000M
+        reservations:
+          memory: 4000M
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "-L", "http://localhost:8080/cmdbuild/ui" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
-    pgadmin:
-        image: dpage/pgadmin4:9.10.0
-        container_name: pgadmin
-        restart: unless-stopped
-        environment:
-            - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
-            - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
-            - PGADMIN_REPLACE_SERVERS_ON_STARTUP=True
-            - PGADMIN_CONFIG_SERVER_MODE=False
-            - PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED=False
-            - PGADMIN_CONFIG_X_CONTENT_TYPE_OPTIONS=''
-            - "PGADMIN_CONFIG_SHARED_STORAGE=[{ 'name': 'shared', 'path': '/shared', 'restricted_access': True }]"
-            - POSTGRES_HOST=${POSTGRES_HOST}
-            - POSTGRES_USER=${POSTGRES_USER}
-            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-            - POSTGRES_DB=${POSTGRES_DB}
-        ports:
-            - 5050:80
-        networks:
-            - cmdbuild-net
-        depends_on:
-            cmdbuild_db:
-                condition: service_healthy
-        deploy:
-            resources:
-                limits:
-                    memory: 512M
-                reservations:
-                    memory: 256M
-        logging:
-            driver: "json-file"
-            options:
-                max-size: "10m"
-                max-file: "3"
-        healthcheck:
-            test: ["CMD", "wget", "-O", "-", "http://localhost:80/misc/ping"]
-            interval: 20s
-            timeout: 5s
-            retries: 3
-        configs:
-            - source: servers.json
-              target: /pgadmin4/servers.json
-            - source: pgpass
-              target: /shared/pgpass
-              uid: "5050"
-              gid: "5050"
-              mode: 0600
+  pgadmin:
+    image: dpage/pgadmin4:9.10.0
+    container_name: pgadmin
+    restart: unless-stopped
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+      - PGADMIN_REPLACE_SERVERS_ON_STARTUP=True
+      - PGADMIN_CONFIG_SERVER_MODE=False
+      - PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED=False
+      - PGADMIN_CONFIG_X_CONTENT_TYPE_OPTIONS=''
+      - "PGADMIN_CONFIG_SHARED_STORAGE=[{ 'name': 'shared', 'path': '/shared', 'restricted_access': True }]"
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - 5050:80
+    networks:
+      - cmdbuild-net
+    depends_on:
+      cmdbuild_db:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: [ "CMD", "wget", "-O", "-", "http://localhost:80/misc/ping" ]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+    configs:
+      - source: servers.json
+        target: /pgadmin4/servers.json
+      - source: pgpass
+        target: /shared/pgpass
+        uid: "5050"
+        gid: "5050"
+        mode: 600
 
 volumes:
-    db:
-    tomcat:
+  db:
+  tomcat:
 
 networks:
-    cmdbuild-net:
-        driver: bridge
+  cmdbuild-net:
+    driver: bridge
 
 configs:
   pgpass:

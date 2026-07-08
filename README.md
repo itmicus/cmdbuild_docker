@@ -8,7 +8,7 @@
 [openMaint](http://www.openmaint.org) open source solution for the Property & Facility Management; an application for the management of buildings, installations, movable assets and related maintenance activities  
 
 ## Latest news
-**08/07/2026** Add CMDBuild 4.2.0 -- @itmicus, add PGadmin for manage cmdbuild DB. 
+**08/07/2026** Add CMDBuild 4.2.0 -- @itmicus minimum docker compose version v2.34.0, add PGadmin for managing Cmdbuild DB. 
 **21/10/2025** Add CMDBuild 4.1.0, READY2USE 2.4 (on CMDBuild 4.1.0), openMAINT 2.4 (on CMDBuild 4.1.0), refactoring, up to PostgreSQL 17/Tomcat 11  -- @itmicus.  
 **21/10/2025** Add CMDBuild 4.0.0, READY2USE 2.4 (on CMDBuild 4.0.4), openMAINT 2.4 (on CMDBuild 4.0.4), refactoring, up to PostgreSQL 17/Tomcat 11 -- @itmicus.  
 **06/08/2023** Add CMDBuild 3.4.2, READY2USE 2.3 (on CMDBuild 3.4.1) -- @itmicus.  
