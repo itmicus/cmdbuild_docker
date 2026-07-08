@@ -1,4 +1,4 @@
-# CMDBuild 4.1.0 with READY2USE 2.4 and openMAINT 2.4 in Docker
+# CMDBuild 4.2.0 with READY2USE 2.4 and openMAINT 2.4 in Docker
 
 ![cmdbuild_logo](https://www.tecnoteca.com/immagini/logo_cmdbuild.png/@@images/bf2e13f9-7a90-4e41-ba76-cf8fe5a87d50.png)  
 [CMDBuild](http://www.cmdbuild.org/en) is a web environment in which you can configure custom solutions for IT Governance, or more generally for asset management.  
@@ -8,6 +8,7 @@
 [openMaint](http://www.openmaint.org) open source solution for the Property & Facility Management; an application for the management of buildings, installations, movable assets and related maintenance activities  
 
 ## Latest news
+**08/07/2026** Add CMDBuild 4.2.0 -- @itmicus, add PGadmin for manage cmdbuild DB. 
 **21/10/2025** Add CMDBuild 4.1.0, READY2USE 2.4 (on CMDBuild 4.1.0), openMAINT 2.4 (on CMDBuild 4.1.0), refactoring, up to PostgreSQL 17/Tomcat 11  -- @itmicus.  
 **21/10/2025** Add CMDBuild 4.0.0, READY2USE 2.4 (on CMDBuild 4.0.4), openMAINT 2.4 (on CMDBuild 4.0.4), refactoring, up to PostgreSQL 17/Tomcat 11 -- @itmicus.  
 **06/08/2023** Add CMDBuild 3.4.2, READY2USE 2.3 (on CMDBuild 3.4.1) -- @itmicus.  
@@ -38,9 +39,9 @@ I will update the repository every time there is a new version of cmdbuild avail
 ```bash
 git clone https://github.com/itmicus/cmdbuild_docker
 ```  
-cd to folder version cmdbuild-4.1.0 or ready2use-2.4-4.1.0 or openmaint-2.4-4.1.0 and run
+and run
 ```bash  
-docker-compose up -d
+docker-compose -f cmdbuild-4.2.0/docker-compose.yml up -d --wait
 ```
   
 ### CMDBuild Ready2use 2.4-4.1.0
