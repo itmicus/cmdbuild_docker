@@ -1,110 +1,137 @@
 # CMDBuild 4.2.0 with READY2USE 2.4 and openMAINT 2.4 in Docker
 
-![cmdbuild_logo](https://www.tecnoteca.com/immagini/logo_cmdbuild.png/@@images/bf2e13f9-7a90-4e41-ba76-cf8fe5a87d50.png)  
-[CMDBuild](http://www.cmdbuild.org/en) is a web environment in which you can configure custom solutions for IT Governance, or more generally for asset management.  
+![cmdbuild_logo](https://www.tecnoteca.com/immagini/logo_cmdbuild.png/@@images/bf2e13f9-7a90-4e41-ba76-cf8fe5a87d50.png)
 
-[READY2USE](http://www.cmdbuild.org/en/prodotti/ready2use) pre-configured CMDBuild READY TO BE USED within the production environment  
+[CMDBuild](http://www.cmdbuild.org/en) is a web environment for configuring custom solutions for IT Governance and asset management.
 
-[openMaint](http://www.openmaint.org) open source solution for the Property & Facility Management; an application for the management of buildings, installations, movable assets and related maintenance activities  
+[READY2USE](http://www.cmdbuild.org/en/prodotti/ready2use) — pre-configured CMDBuild, ready to be used in production.
 
-## Latest news
-**08/07/2026** Add CMDBuild 4.2.0 -- @itmicus minimum docker compose version v2.34.0, add PGadmin for managing Cmdbuild DB.  
-**21/10/2025** Add CMDBuild 4.1.0, READY2USE 2.4 (on CMDBuild 4.1.0), openMAINT 2.4 (on CMDBuild 4.1.0), refactoring, up to PostgreSQL 17/Tomcat 11  -- @itmicus.  
-**21/10/2025** Add CMDBuild 4.0.0, READY2USE 2.4 (on CMDBuild 4.0.4), openMAINT 2.4 (on CMDBuild 4.0.4), refactoring, up to PostgreSQL 17/Tomcat 11 -- @itmicus.  
-**06/08/2023** Add CMDBuild 3.4.2, READY2USE 2.3 (on CMDBuild 3.4.1) -- @itmicus.  
-**21/02/2023** Add CMDBuild 3.4, CMDBuild 3.4.1, and openMAINT 3.2 (on CMDBuild 3.4.1) -- @afcarvalho1991 and @quinont contribution.  
-**29/12/2020** Add openMAINT 2.1 on CMDBuild 3.3b  @afcarvalho1991 contribution  
-**12/10/2020** Add CMDBuild 3.3, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.2.1  @afcarvalho1991 contribution  
-**11/06/2020** Add CMDBuild 3.2.1, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.2.1  
-**19/02/2020** Add CMDBuild 3.2, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.2  
-**27/10/2019** Add CMDBuild 3.1.1, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.1.1  
-**04/08/2019** Add READY2USE 2.0 and openMAINT 2.0  
-**12/07/2019** Add CMDBuild 3.1 with old version READY2USE (but we still waiting 2.0)
+[openMaint](http://www.openmaint.org) — open source solution for Property & Facility Management; an application for managing buildings, installations, movable assets, and related maintenance activities.
 
-This is the unofficial repository with all the versions of cmdbuild.  
-I will update the repository every time there is a new version of cmdbuild available
+---
 
-*Sometimes container cmdbuild_app after first run may be stopped, because it need more memory for this. Please, restart it*  
+## Latest News
 
-**Please open issues on [github](https://github.com/itmicus/cmdbuild_docker/issues)**  
+| Date | Updates |
+|------|---------|
+| **08/07/2026** | Add CMDBuild 4.2.0 — @itmicus. Minimum Docker Compose version v2.34.0. Added PGAdmin for managing CMDBuild DB. |
+| **21/10/2025** | Add CMDBuild 4.1.0, READY2USE 2.4 (on CMDBuild 4.1.0), openMAINT 2.4 (on CMDBuild 4.1.0). Refactoring, up to PostgreSQL 17 / Tomcat 11 — @itmicus. |
+| **21/10/2025** | Add CMDBuild 4.0.0, READY2USE 2.4 (on CMDBuild 4.0.4), openMAINT 2.4 (on CMDBuild 4.0.4). Refactoring, up to PostgreSQL 17 / Tomcat 11 — @itmicus. |
+| **06/08/2023** | Add CMDBuild 3.4.2, READY2USE 2.3 (on CMDBuild 3.4.1) — @itmicus. |
+| **21/02/2023** | Add CMDBuild 3.4, CMDBuild 3.4.1, and openMAINT 3.2 (on CMDBuild 3.4.1) — @afcarvalho1991 and @quinont contribution. |
+| **29/12/2020** | Add openMAINT 2.1 on CMDBuild 3.3b — @afcarvalho1991 contribution. |
+| **12/10/2020** | Add CMDBuild 3.3, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.2.1 — @afcarvalho1991 contribution. |
+| **11/06/2020** | Add CMDBuild 3.2.1, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.2.1. |
+| **19/02/2020** | Add CMDBuild 3.2, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.2. |
+| **27/10/2019** | Add CMDBuild 3.1.1, READY2USE 2.0 and openMAINT 2.0 on CMDBuild 3.1.1. |
+| **04/08/2019** | Add READY2USE 2.0 and openMAINT 2.0. |
+| **12/07/2019** | Add CMDBuild 3.1 with old version READY2USE (still waiting 2.0). |
 
-## Deploy by docker run
+---
 
-### Build images (locally)
+This is the **unofficial** repository with all versions of CMDBuild.
+I will update the repository every time a new version of CMDBuild is available.
 
-    sh docker-build.sh # or select the specific version needed and the DB image
+> [!NOTE]
+> Sometimes the `cmdbuild_app` container may stop after the first run because it needs more memory. Please restart it.
 
-### CMDBuild with demo database
+**Please open issues on [GitHub](https://github.com/itmicus/cmdbuild_docker/issues).**
+
+---
+
+## Deploy by `docker run`
+
+### Build Images (Locally)
+
+```bash
+sh docker-build.sh
+# or select the specific version needed and the DB image
+```
+
+---
+
+## Deploy by `docker compose`
+
+### CMDBuild with Demo Database
 
 ```bash
 git clone https://github.com/itmicus/cmdbuild_docker
-```  
-and run
-```bash  
 docker-compose -f cmdbuild-4.2.0/docker-compose.yml up -d --wait
 ```
-  
-### CMDBuild Ready2use 2.4-4.1.0
 
-```bash  
+### CMDBuild Ready2Use 2.4-4.1.0
+
+```bash
 git clone https://github.com/itmicus/cmdbuild_docker
-```  
-Open file docker-compose.yml and change to CMDBUILD_DUMP=demo.dump.xz and save file
+```
+
+Open `docker-compose.yml`, change `CMDBUILD_DUMP` to `demo.dump.xz`, and save the file.
+
 ```bash
 docker-compose -f ready2use-2.4-4.1.0/docker-compose.yml up -d
 ```
 
-### CMDbuild openMAINT 2.4-4.1.0
+### CMDBuild openMAINT 2.4-4.1.0
 
-```bash  
+```bash
 git clone https://github.com/itmicus/cmdbuild_docker
-```  
-Open file docker-compose.yml and change to CMDBUILD_DUMP=demo.dump.xz and save file
+```
+
+Open `docker-compose.yml`, change `CMDBUILD_DUMP` to `demo.dump.xz`, and save the file.
+
 ```bash
 docker-compose -f openmaint-2.4-4.1.0/docker-compose.yml up -d
 ```
 
+---
+
 ## Connect to CMDBuild
 
-Waiting while all container starting and initilize database (about few minutes) and open your browser  
-http://localhost:8090/cmdbuild  
-Login: admin  
-Password: admin  
+Wait for all containers to start and initialize the database (a few minutes), then open your browser:
 
-    
-## How it works
+| Service      | URL                                    | Login | Password |
+|--------------|----------------------------------------|-------|----------|
+| **CMDBuild** | http://localhost:8090/cmdbuild         | admin | admin    |
+| **Tomcat**   | http://localhost:8090/manager/                 | admin | password |
+| **PGAdmin**   | http://localhost:5050/                | admin@example.com | admin
 
-### Tomcat
 
-http://localhost:8090/  
-Login: admin  
-Password: password 
+---
 
-### The default cmdbuild_app environment in the image is  
+## How It Works
 
-POSTGRES_USER: postgres  
-POSTGRES_PASS: postgres  
-POSTGRES_PORT: 5432  
-POSTGRES_HOST: cmdbuild_db  
-POSTGRES_DB: cmdbuild_db4
-CMDBUILD_DUMP: demo.dump.xz  
+### Default `cmdbuild_app` Environment Variables
 
-### CMDBUILD_DUMP values for Ready2use and openMAINT
+| Variable          | Value           |
+|-------------------|-----------------|
+| `POSTGRES_USER`   | `postgres`      |
+| `POSTGRES_PASS`   | `postgres`      |
+| `POSTGRES_PORT`   | `5432`          |
+| `POSTGRES_HOST`   | `cmdbuild_db`   |
+| `POSTGRES_DB`     | `cmdbuild_db4`  |
+| `CMDBUILD_DUMP`   | `demo.dump.xz`  |
 
-* demo.dump.xz
-* empty.dump.xz
+### `CMDBUILD_DUMP` Values for Ready2Use and openMAINT
 
-### CMDBUILD users
+- `demo.dump.xz`
+- `empty.dump.xz`
 
-* admin/admin       - full admin
-* demouser/demouser - multi-groups
-* guest/guest       - readonly
+### CMDBuild Users
 
-### How drop cmdbuild database
-If you want to change type DB you must drop old database
+| Username   | Password   | Role          |
+|------------|------------|---------------|
+| `admin`    | `admin`    | Full admin    |
+| `demouser` | `demouser` | Multi-groups  |
+| `guest`    | `guest`    | Read-only     |
+
+---
+
+### How to Drop the CMDBuild Database
+
+If you want to change the database type, you must drop the old database first:
 
 ```bash
 docker-compose exec cmdbuild_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh dbconfig drop -configfile /usr/local/tomcat/conf/cmdbuild/database.conf
 ```
 
-and after run container with new value of CMDBUILD_DUMP
+Then run the container with a new value for `CMDBUILD_DUMP`.

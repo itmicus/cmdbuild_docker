@@ -1,0 +1,22 @@
+# Git
+.git
+.gitignore
+
+# Docker
+docker-compose.yml
+docker-compose.yml.backup
+.env*.backup
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.md
+LICENSE

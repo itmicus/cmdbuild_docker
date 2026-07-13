@@ -5,8 +5,8 @@ cat /dev/null > $CATALINA_HOME/conf/cmdbuild/database.conf
 echo "Edit $CATALINA_HOME/conf/cmdbuild/database.conf"
 {
     echo "db.url=jdbc:postgresql://$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB"
-    echo "db.username=cmdbuild"
-    echo "db.password=cmdbuild"
+    echo "db.username=${CMDBUILD_DB_USER:-cmdbuild}"
+    echo "db.password=${CMDBUILD_DB_PASSWORD:-cmdbuild}"
     echo "db.admin.username=$POSTGRES_USER"
     echo "db.admin.password=$POSTGRES_PASSWORD"
 } >> $CATALINA_HOME/conf/cmdbuild/database.conf
@@ -16,6 +16,7 @@ while ! timeout 1 bash -c "echo > /dev/tcp/$POSTGRES_HOST/$POSTGRES_PORT"; do
   >&2 echo "Postgres is unavailable - sleeping" 
   sleep 5
 done
+
 
 echo "Init DB"
 { # try
