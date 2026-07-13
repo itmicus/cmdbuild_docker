@@ -2,12 +2,13 @@
 **CMDbuild with demo database**  
 ```bash
 docker compose up -d --wait
+# configure attachments
+docker exec -ti cmdbuild_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh restws setconfig org.cmdbuild.dms.enabled false
+docker exec -ti cmdbuild_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh restws setconfig org.cmdbuild.dms.service.type postgres
+docker exec -ti cmdbuild_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh restws setconfig org.cmdbuild.dms.enabled true
+
 ```  
 
-**With pgAdmin (admin profile):**
-```bash
-docker compose up -d --wait
-```
 
 #### CMDBUILD_DUMP values
 * `demo.dump.xz`

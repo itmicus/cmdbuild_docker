@@ -57,6 +57,10 @@ sh docker-build.sh
 ```bash
 git clone https://github.com/itmicus/cmdbuild_docker
 docker-compose -f cmdbuild-4.2.0/docker-compose.yml up -d --wait
+# configure attachments
+docker exec -ti cmdbuild_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh restws setconfig org.cmdbuild.dms.enabled false
+docker exec -ti cmdbuild_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh restws setconfig org.cmdbuild.dms.service.type postgres
+docker exec -ti cmdbuild_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh restws setconfig org.cmdbuild.dms.enabled true
 ```
 
 ### CMDBuild Ready2Use 2.4-4.1.0

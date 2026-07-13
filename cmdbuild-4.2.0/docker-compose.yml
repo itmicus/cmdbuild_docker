@@ -73,6 +73,7 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+ 
 
   pgadmin:
     image: dpage/pgadmin4:9.10.0
