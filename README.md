@@ -14,6 +14,7 @@
 
 | Date | Updates |
 |------|---------|
+| **13/07/2026** | Add to CMDBuild 4.2.0 configure attachments to postgres. |
 | **08/07/2026** | Add CMDBuild 4.2.0 — @itmicus. Minimum Docker Compose version v2.34.0. Added PGAdmin for managing CMDBuild DB. |
 | **21/10/2025** | Add CMDBuild 4.1.0, READY2USE 2.4 (on CMDBuild 4.1.0), openMAINT 2.4 (on CMDBuild 4.1.0). Refactoring, up to PostgreSQL 17 / Tomcat 11 — @itmicus. |
 | **21/10/2025** | Add CMDBuild 4.0.0, READY2USE 2.4 (on CMDBuild 4.0.4), openMAINT 2.4 (on CMDBuild 4.0.4). Refactoring, up to PostgreSQL 17 / Tomcat 11 — @itmicus. |
